@@ -12,11 +12,21 @@
     <body>
 
 
-        <a href="lorem.jpg" id="download">download me</a>
+        <a href="lorem.jpg" target="_blank" id="download">download me</a>
+        <p id="agent"></p>
 
         <script type="text/javascript">
+            document.getElementById('agent').innerHTML = navigator.userAgent;
+
             document.getElementById('download').addEventListener('click', function(event) {
-                event.preventDefault();
+
+                if (supportedPhone) {
+                    event.preventDefault();
+                } else {
+                    return;
+                }
+
+
                 console.log('kokot')
                 var x=new XMLHttpRequest();
                     x.open("GET", "lorem.jpg", true);
