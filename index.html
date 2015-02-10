@@ -15,13 +15,14 @@
         <div id="download">download me</div>
 
         <script type="text/javascript">
-            document.getElementById('download').click = function() {
+            document.getElementById('download').addEventListener('click', function() {
+                console.log('kokot')
                 var x=new XMLHttpRequest();
                     x.open("GET", "lorem.jpg", true);
                     x.responseType = 'blob';
                     x.onload=function(e){download(x.response, "ipsum.jpg", "image/jpeg" ); }
                     x.send();
-            }
+            })
         </script>
 
         <script src="download.js"></script>
